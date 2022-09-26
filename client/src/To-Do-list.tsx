@@ -3,17 +3,13 @@ import axios from 'axios';
 import { Card, Header, Form, Input, Icon, Button } from 'semantic-ui-react';
 import { SemanticCOLORS } from 'semantic-ui-react/dist/commonjs/generic';
 
-interface Item {
-  ID: string;
-  Task: string;
-  Status: boolean;
-}
-
 let endpoint = 'http://localhost:8080';
 
 const ToDoList = () => {
   const [task, setTask] = useState<string>('');
-  const [items, setItems] = useState<Item[]>([]);
+  const [items, setItems] = useState([]);
+
+  console.log(typeof items, items);
 
   const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setTask(event.target.value);
